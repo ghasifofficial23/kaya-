@@ -9,6 +9,9 @@ export const DISHES: Dish[] = [
     price: '$185',
     gradient: 'from-[#1A0F0A] via-[#3D1E14] to-[#6B3020]',
     image: '/images/ember_steak.png',
+    ingredients: ['Kagoshima A5 Wagyu', 'Bone Marrow', 'Black Winter Truffle', 'Binchotan Charcoal'],
+    style: 'Wood-Fired / Prime Cut',
+    origin: 'Kagoshima Prefecture, Japan',
   },
   {
     id: '2',
@@ -18,6 +21,9 @@ export const DISHES: Dish[] = [
     price: '$145',
     gradient: 'from-[#0A1015] via-[#1A2835] to-[#2B4A5E]',
     image: '/images/ember_lobster.png',
+    ingredients: ['Wild-Caught Dover Sole', 'Oscietra Caviar', 'Preserved Meyer Lemon', 'Young Thyme'],
+    style: 'Classic French / Steamed',
+    origin: 'English Channel',
   },
   {
     id: '3',
@@ -26,6 +32,9 @@ export const DISHES: Dish[] = [
     description: 'Carnaroli, aged Parmigiano, Périgord black truffle shaved tableside, 36-month Comté',
     price: '$95',
     gradient: 'from-[#100A05] via-[#2A1A0A] to-[#4A2E12]',
+    ingredients: ['Aquerello Carnaroli Rice', 'Périgord Truffle', '36-Month Comté', 'Aged Parmigiano-Reggiano'],
+    style: 'Slow-Cooked / Rich',
+    origin: 'Piedmont, Italy',
   },
   {
     id: '4',
@@ -34,6 +43,9 @@ export const DISHES: Dish[] = [
     description: 'Roasted heritage beet, aged goat cheese mousse, walnut praline, elderflower gel',
     price: '$68',
     gradient: 'from-[#0A100A] via-[#152615] to-[#2A4A2A]',
+    ingredients: ['Chioggia Beetroots', 'Aged Goat Cheese', 'Toasted Walnuts', 'Foraged Elderflower'],
+    style: 'Earth-Roasted / Modern',
+    origin: 'Hudson Valley, NY',
   },
   {
     id: '5',
@@ -43,6 +55,9 @@ export const DISHES: Dish[] = [
     price: '$48',
     gradient: 'from-[#150A15] via-[#2A1530] to-[#4A2055]',
     image: '/images/ember_dessert.png',
+    ingredients: ['70% Guanaja Chocolate', 'Amazonian Tonka Bean', 'Wild Blackcurrant', '24k Edible Gold'],
+    style: 'Tempered / Theatrical',
+    origin: 'Tain-l\'Hermitage, France',
   },
   {
     id: '6',
@@ -52,6 +67,9 @@ export const DISHES: Dish[] = [
     price: '$55',
     gradient: 'from-[#1A1A15] via-[#2A2A20] to-[#4A4A35]',
     image: '/images/kaya_scallops.png',
+    ingredients: ['Hokkaido Scallops', 'Yuzu Kosho', 'Smoked Beurre Blanc', 'Micro Shiso'],
+    style: 'Flash-Seared / Smoked',
+    origin: 'Hokkaido, Japan',
   },
 ];
 

@@ -1,11 +1,14 @@
 import { Reveal, ParallaxReveal } from './Reveal';
 import { DISHES } from '../constants';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '../lib/utils';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
+import { Dish } from '../types';
+import { X } from 'lucide-react';
 
 export const Dishes = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [selectedDish, setSelectedDish] = useState<Dish | null>(null);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -50,9 +53,10 @@ export const Dishes = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.8 }}
+            onClick={() => setSelectedDish(dish)}
             className={cn(
               "relative h-[480px] md:h-[560px] cursor-none overflow-hidden transition-all duration-700 ease-in-out w-[85vw] sm:w-[60vw] md:w-auto md:basis-[400px] hover:md:basis-[560px] flex-shrink-0",
-              "group/card"
+              "group/card cursor-pointer"
             )}
           >
             {dish.image ? (
@@ -80,6 +84,93 @@ export const Dishes = () => {
           </motion.div>
         ))}
       </div>
+      <AnimatePresence>
+        {selectedDish && (
+          <motion.div 
+            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            animate={{ opacity: 1, backdropFilter: 'blur(20px)' }}
+            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            className="fixed inset-0 z-[100] bg-[#1A1612]/90 flex items-center justify-center p-6"
+          >
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0, y: 50 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 50 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="bg-[#25201B] border border-[#D4A44C]/30 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-sm flex flex-col md:flex-row relative shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+            >
+              {/* Close Button */}
+              <button 
+                onClick={() => setSelectedDish(null)}
+                className="absolute top-4 right-4 z-50 text-[#F5EFE0] p-2 bg-black/40 rounded-full hover:bg-[#C8442A] transition-colors border border-white/10"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Image Side */}
+              <div className="md:w-1/2 relative h-64 md:h-auto overflow-hidden shrink-0">
+                {selectedDish.image ? (
+                  <img src={selectedDish.image} alt={selectedDish.name} className="absolute inset-0 w-full h-full object-cover" />
+                ) : (
+                  <div className={cn("absolute inset-0 bg-gradient-to-br", selectedDish.gradient)} />
+                )}
+                {selectedDish.image && <div className={cn("absolute inset-0 bg-gradient-to-br opacity-60 mix-blend-multiply", selectedDish.gradient)} />}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#25201B] md:bg-gradient-to-r md:from-transparent md:to-[#25201B] pointer-events-none" />
+              </div>
+
+              {/* Details Side */}
+              <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center space-y-8 relative z-10">
+                <div className="space-y-2">
+                  <p className="font-jost text-[10px] tracking-[0.4em] uppercase text-[#D4A44C]">{selectedDish.category}</p>
+                  <h3 className="font-bebas text-5xl md:text-6xl text-[#F5EFE0] leading-none tracking-wider">{selectedDish.name}</h3>
+                  <div className="font-bebas text-3xl text-[#C8442A]">{selectedDish.price}</div>
+                </div>
+
+                <p className="font-serif italic text-lg text-[#F5EFE0]/80 leading-relaxed">
+                  {selectedDish.description}
+                </p>
+
+                <div className="space-y-6 pt-6 border-t border-[#D4A44C]/10">
+                  {selectedDish.ingredients && (
+                    <div>
+                      <h4 className="font-bebas text-xl text-[#D4A44C] tracking-widest mb-3">Key Ingredients</h4>
+                      <ul className="grid grid-cols-2 gap-2 text-sm text-[#8A8278] font-serif">
+                        {selectedDish.ingredients.map((ing, idx) => (
+                          <li key={idx} className="flex items-center gap-2">
+                            <span className="w-1 h-1 bg-[#C8442A] rounded-full" /> {ing}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  <div className="grid grid-cols-2 gap-4">
+                    {selectedDish.style && (
+                      <div>
+                        <h4 className="font-bebas text-lg text-[#D4A44C] tracking-widest mb-1">Style</h4>
+                        <p className="text-sm text-[#F5EFE0]/60">{selectedDish.style}</p>
+                      </div>
+                    )}
+                    {selectedDish.origin && (
+                      <div>
+                        <h4 className="font-bebas text-lg text-[#D4A44C] tracking-widest mb-1">Origin</h4>
+                        <p className="text-sm text-[#F5EFE0]/60">{selectedDish.origin}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                
+                <button 
+                  onClick={() => setSelectedDish(null)}
+                  className="mt-4 border border-[#D4A44C]/30 text-[#D4A44C] py-3 hover:bg-[#D4A44C] hover:text-[#1A1612] font-bebas tracking-widest transition-all rounded-sm"
+                >
+                  Return to Menu
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

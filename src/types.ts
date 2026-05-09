@@ -6,6 +6,9 @@ export interface Dish {
   price: string;
   gradient: string;
   image?: string;
+  ingredients?: string[];
+  style?: string;
+  origin?: string;
 }
 
 export interface MenuItem {
