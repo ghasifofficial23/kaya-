@@ -12,21 +12,35 @@ import { Menu } from './components/Menu';
 import { Reservations } from './components/Reservations';
 import { Footer } from './components/Footer';
 import { CustomCursor } from './components/CustomCursor';
+import { Loader } from './components/Loader';
+import { useState } from 'react';
+import { AnimatePresence } from 'motion/react';
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <div className="min-h-screen bg-[#1A1612] text-[#F5EFE0] cursor-none">
       <CustomCursor />
-      <Navbar />
-      <main>
-        <Hero />
-        <History />
-        <Awards />
-        <Dishes />
-        <Menu />
-        <Reservations />
-      </main>
-      <Footer />
+      
+      <AnimatePresence mode="wait">
+        {isLoading ? (
+          <Loader key="loader" onComplete={() => setIsLoading(false)} />
+        ) : (
+          <div key="app">
+            <Navbar />
+            <main>
+              <Hero />
+              <History />
+              <Awards />
+              <Dishes />
+              <Menu />
+              <Reservations />
+            </main>
+            <Footer />
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
