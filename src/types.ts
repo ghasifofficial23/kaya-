@@ -16,6 +16,9 @@ export interface MenuItem {
   description: string;
   price: string;
   tags?: string[];
+  ingredients?: string[];
+  style?: string;
+  origin?: string;
 }
 
 export interface MenuCategory {

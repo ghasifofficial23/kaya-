@@ -117,44 +117,44 @@ export const MENU: MenuCategory[] = [
     id: 'starters',
     title: 'Starters & Amuse-Bouche',
     items: [
-      { name: 'Oscietra Caviar & Blini', description: '30g Oscietra caviar, warm buckwheat blini, crème fraîche, chives', price: '$145', tags: ['Signature'] },
-      { name: 'Foie Gras Torchon', description: '48-hour duck foie gras, Sauternes gelée, brioche toast, smoked salt', price: '$88', tags: ["Chef's Choice"] },
-      { name: 'Tuna Crudo', description: 'Bluefin tuna, ponzu, micro shiso, Maldon sea salt, yuzu foam', price: '$72' },
-      { name: 'Burrata e Tartufo', description: 'Stracciatella burrata, white truffle oil, heirloom tomato, aged balsamic, basil', price: '$64', tags: ['Vegetarian'] },
+      { name: 'Oscietra Caviar & Blini', description: '30g Oscietra caviar, warm buckwheat blini, crème fraîche, chives', price: '$145', tags: ['Signature'], ingredients: ['30g Royal Oscietra Caviar', 'Buckwheat Blini', 'Normandy Crème Fraîche', 'Chives'], style: 'Classic Elegance', origin: 'Caspian Sea' },
+      { name: 'Foie Gras Torchon', description: '48-hour duck foie gras, Sauternes gelée, brioche toast, smoked salt', price: '$88', tags: ["Chef's Choice"], ingredients: ['Rougié Duck Foie Gras', 'Sauternes Wine', 'House-Baked Brioche', 'Applewood Smoked Salt'], style: 'Rich & Decadent', origin: 'Perigord, France' },
+      { name: 'Tuna Crudo', description: 'Bluefin tuna, ponzu, micro shiso, Maldon sea salt, yuzu foam', price: '$72', ingredients: ['Bluefin Akami', 'Aged Ponzu', 'Yuzu Foam', 'Maldon Salt'], style: 'Light & Citrusy', origin: 'Nagasaki, Japan' },
+      { name: 'Burrata e Tartufo', description: 'Stracciatella burrata, white truffle oil, heirloom tomato, aged balsamic, basil', price: '$64', tags: ['Vegetarian'], ingredients: ['Puglian Burrata', 'White Alba Truffle Oil', 'Heirloom Tomatoes', '25-Year Balsamic'], style: 'Fresh & Earthy', origin: 'Puglia, Italy' },
     ]
   },
   {
     id: 'mains',
     title: 'Main Courses',
     items: [
-      { name: 'Wagyu A5 Ribeye', description: '45-day dry-aged A5, roasted marrow, truffle jus, wood-fired char', price: '$185', tags: ['Signature', 'Bestseller'] },
-      { name: 'Dover Sole en Papillote', description: 'Whole Dover sole, preserved lemon beurre blanc, caviar, garden herbs', price: '$145', tags: ['Signature'] },
-      { name: 'Rack of Lamb', description: 'Colorado rack, pistachio-herb crust, spring pea purée, rosemary jus', price: '$118' },
+      { name: 'Wagyu A5 Ribeye', description: '45-day dry-aged A5, roasted marrow, truffle jus, wood-fired char', price: '$185', tags: ['Signature', 'Bestseller'], ingredients: ['Kagoshima A5 Wagyu', 'Bone Marrow', 'Black Winter Truffle', 'Binchotan Charcoal'], style: 'Wood-Fired / Prime Cut', origin: 'Kagoshima Prefecture, Japan' },
+      { name: 'Dover Sole en Papillote', description: 'Whole Dover sole, preserved lemon beurre blanc, caviar, garden herbs', price: '$145', tags: ['Signature'], ingredients: ['Wild-Caught Dover Sole', 'Oscietra Caviar', 'Preserved Meyer Lemon', 'Young Thyme'], style: 'Classic French / Steamed', origin: 'English Channel' },
+      { name: 'Rack of Lamb', description: 'Colorado rack, pistachio-herb crust, spring pea purée, rosemary jus', price: '$118', ingredients: ['Colorado Lamb', 'Bronte Pistachios', 'Spring Peas', 'Rosemary Reduction'], style: 'Herb-Crusted / Tender', origin: 'Colorado, USA' },
     ]
   },
   {
     id: 'desserts',
     title: 'Desserts',
     items: [
-      { name: 'Valrhona Dark Sphère', description: '70% Guanaja chocolate sphere, tonka bean ice cream, blackcurrant coulis, gold leaf', price: '$48', tags: ['Signature'] },
-      { name: 'Mille-Feuille', description: 'Caramelised puff pastry, Tahitian vanilla mousseline, salted caramel', price: '$36' },
+      { name: 'Valrhona Dark Sphère', description: '70% Guanaja chocolate sphere, tonka bean ice cream, blackcurrant coulis, gold leaf', price: '$48', tags: ['Signature'], ingredients: ['70% Guanaja Chocolate', 'Amazonian Tonka Bean', 'Wild Blackcurrant', '24k Edible Gold'], style: 'Tempered / Theatrical', origin: 'Tain-l\'Hermitage, France' },
+      { name: 'Mille-Feuille', description: 'Caramelised puff pastry, Tahitian vanilla mousseline, salted caramel', price: '$36', ingredients: ['French Butter Pastry', 'Tahitian Vanilla', 'Fleur de Sel Caramel', 'Chantilly Cream'], style: 'Crisp & Creamy', origin: 'Paris, France' },
     ]
   },
   {
     id: 'wines',
     title: 'Wines',
     items: [
-      { name: 'Château Margaux 2010', description: 'Premier Grand Cru Classé, Margaux, Bordeaux, France', price: '$1,200', tags: ['Sommelier Selection'] },
-      { name: 'Opus One 2018', description: 'Cabernet Sauvignon blend, Napa Valley, California', price: '$650' },
-      { name: 'Dom Perignon 2012', description: 'Vintage Champagne, Épernay, France', price: '$450' },
+      { name: 'Château Margaux 2010', description: 'Premier Grand Cru Classé, Margaux, Bordeaux, France', price: '$1,200', tags: ['Sommelier Selection'], ingredients: ['87% Cabernet Sauvignon', '11% Merlot', '2% Cabernet Franc'], style: 'Full-Bodied / Elegant', origin: 'Bordeaux, France' },
+      { name: 'Opus One 2018', description: 'Cabernet Sauvignon blend, Napa Valley, California', price: '$650', ingredients: ['Cabernet Sauvignon', 'Petit Verdot', 'Merlot', 'Cabernet Franc', 'Malbec'], style: 'Rich / Velvety', origin: 'Napa Valley, USA' },
+      { name: 'Dom Perignon 2012', description: 'Vintage Champagne, Épernay, France', price: '$450', ingredients: ['Pinot Noir', 'Chardonnay'], style: 'Crisp / Minerality', origin: 'Champagne, France' },
     ]
   },
   {
     id: 'tasting-menu',
     title: 'Tasting Menu',
     items: [
-      { name: 'The KAYA Experience', description: 'A 9-course journey through fire and flavor, featuring our most prized ingredients.', price: '$325', tags: ['Signature'] },
-      { name: 'Wine Pairing', description: 'Curated wine pairings for each course of The KAYA Experience.', price: '$175' },
+      { name: 'The KAYA Experience', description: 'A 9-course journey through fire and flavor, featuring our most prized ingredients.', price: '$325', tags: ['Signature'], ingredients: ['Seasonal Truffle', 'A5 Wagyu', 'Caviar', 'Wild Seafood'], style: 'Chef\'s Progression', origin: 'Global' },
+      { name: 'Wine Pairing', description: 'Curated wine pairings for each course of The KAYA Experience.', price: '$175', ingredients: ['Grand Cru Champagnes', 'Aged Burgundies', 'Rare Napa Cabernets', 'Vintage Port'], style: 'Sommelier Curated', origin: 'Global' },
     ]
   }
 ];
